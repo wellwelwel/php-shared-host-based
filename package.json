@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "docker build -t wellwelwel/php:8-shared-based .",
+    "run": "docker run --name php-test --rm -p 3000:80 wellwelwel/php:8-shared-based",
+    "exec": "docker exec -it php-test /bin/bash",
+    "prepush": "npm run build",
+    "push": "DOCKER_CLI_EXPERIMENTAL=enabled docker buildx ls | grep -q php-builder || docker buildx create --name php-builder --use; docker buildx use php-builder && docker buildx build --platform linux/amd64,linux/arm64 -t wellwelwel/php:8-shared-based --push ."
+  }
+}
