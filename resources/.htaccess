@@ -1,0 +1,5 @@
+## OPcache: you can comment out the following line for production environments
+php_flag opcache.enable Off
+
+## Debug: comment out the following line to display errors
+# php_flag display_errors On

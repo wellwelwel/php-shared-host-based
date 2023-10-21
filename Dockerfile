@@ -62,10 +62,11 @@ RUN mkdir -p /srv/www/public_html \
   && printf "\nServerSignature Off\nServerTokens Prod" >> /etc/apache2/conf-available/security.conf \
   && printf "\nServerName localhost" >> /etc/apache2/apache2.conf \
   && sed -i 's/^\(CustomLog.*\)$/#\1/' /etc/apache2/conf-available/other-vhosts-access-log.conf \
-  && echo "<?php echo '<style>body{font-family:monospace}</style><h1>It works!</h1><p>Modify this page at <strong>/srv/www/public_html/index.php</strong></p>';" > /srv/www/public_html/index.php \
   ;
 
 COPY ./resources/php.ini /usr/local/etc/php/php.ini
 COPY ./resources/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY ./resources/index.php /srv/www/public_html/index.php
+COPY ./resources/.htaccess /srv/www/public_html/.htaccess
 
 WORKDIR /srv/www/public_html
