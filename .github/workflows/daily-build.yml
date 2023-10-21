@@ -1,7 +1,7 @@
 name: '🕐 Daily Docker Build'
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * 1' # Every Monday at 12 AM.
   workflow_dispatch:
 jobs:
   build:
@@ -24,4 +24,4 @@ jobs:
         with:
           push: true
           tags: wellwelwel/php:8-shared-based
-          platforms: linux/amd64,linux/arm/v5,linux/arm/v7,linux/arm64/v8
+          platforms: linux/amd64,linux/arm64/v8
