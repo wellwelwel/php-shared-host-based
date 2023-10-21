@@ -22,7 +22,6 @@ jobs:
       - name: ➕ Actions - Build and Push
         uses: docker/build-push-action@v5
         with:
-          context: .
           push: true
           tags: wellwelwel/php:8-shared-based
           platforms: linux/amd64,linux/arm/v5,linux/arm/v7,linux/arm/v8,linux/386,linux/mips64le,linux/ppc64le,linux/s390x
